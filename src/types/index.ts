@@ -27,3 +27,7 @@ export interface GasStationData {
 export interface GasStationResponse {
   'Gasolineras': GasStationData[];
 }
+
+export interface FuelApiResponse {
+  ListaEESSPrecio: GasStationData[];
+}

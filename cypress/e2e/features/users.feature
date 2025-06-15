@@ -6,6 +6,13 @@ Feature: Registro y Login de usuario
     And envía el formulario de registro
     Then ve un mensaje de confirmación de registro
 
+  Scenario: Login fallido del usuario registrado
+    Given el usuario navega a la página de login
+    When completa el formulario de login con credenciales no válidas
+    And envía el formulario de login
+    Then ve un mensaje de error
+
+
   Scenario: Login exitoso de un usuario registrado
     Given el usuario navega a la página de login
     When completa el formulario de login con credenciales válidas

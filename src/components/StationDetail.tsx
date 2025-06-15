@@ -3,9 +3,10 @@ import Comments from './Comments';
 
 import './StationDetail.css'
 import './Form.css'
+import { userName } from '@/store';
 
 
-function StationDetail({ stations, user }) {
+function StationDetail({ stations }) {
   const location = useLocation();
   console.log(location);
   const {gobackLink} = location.state;
@@ -28,7 +29,7 @@ function StationDetail({ stations, user }) {
       <Link to={gobackLink}> &lt;&lt; Volver
       </Link>
 
-      <Comments stationId={station.IDEESS} user={user} />
+      <Comments stationId={station.IDEESS} user={userName.value} />
     </div>
   );
 }
