@@ -1,9 +1,16 @@
 import { useEffect, useState } from 'react';
 import './Comments.css';
+import { userStore } from '@/store';
 
 
+interface IComments {
+  id: number,
+  username: string,
+  created_at: string,
+  comment: string
+}
 function Comments({ stationId, user }) {
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState<IComments[] | undefined>();
   const [comment, setComment] = useState('');
   const [msg, setMsg] = useState('');
 
@@ -37,6 +44,24 @@ function Comments({ stationId, user }) {
     }
   };
 
+  const onDelete = async (idComment: number) => {
+    setMsg('');
+    const token = localStorage.getItem('token');
+    const res = await fetch(`http://localhost:4000/api/comments/${idComment}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token, commentId: idComment })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      setComment('');
+      setMsg('¡Comentario eliminado!');
+      fetchComments();
+    } else {
+      setMsg(data.message);
+    }
+  }
+
 
   return (
     <div className="comments-section">
@@ -59,10 +84,13 @@ function Comments({ stationId, user }) {
       )}
       {msg && <p>{msg}</p>}
       <ul className="comments-list">
-        {comments.map((c, idx) => (
+        {comments?.map((c, idx) => (
           <li key={idx}>
             <strong>{c.username}</strong> <em>({new Date(c.created_at).toLocaleString()})</em>
-            <div>{c.comment}</div>
+            <div className='flex items-center'>
+              <p className='grow'>{c.comment}</p>
+              {userStore.value?.role == "admin" && <img src="https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png" alt="" onClick={() => onDelete(c.id)} className='w-5 h-5 cursor-pointer' />}
+            </div>
           </li>
         ))}
       </ul>

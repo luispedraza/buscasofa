@@ -1,5 +1,6 @@
 @import '../styles/variables.css';
 
+/*
 header {
     background: var(--dark-blue);
     color: var(--primary-blue);
@@ -8,20 +9,8 @@ header {
     height: 3rem;
     
 }
+    */
 
-nav a {
-    vertical-align: middle;
-    padding: 10px;
-    color: var(--light-blue);
-    margin-right: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-nav a:hover {
-    color: var(--yellow);
-}
 
 button {
   background: var(--primary-blue);
