@@ -22,7 +22,9 @@ const userIcon = new L.Icon({
 /**
  * mapa de estaciones de servicio
  */
-function FuelMap({ stations }) {
+function FuelMap({ stations, loading }) {
+  if (loading) return <div className="loading">Cargando...</div>;
+  
   const navigate = useNavigate();
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [filterRotulo, setFilterRotulo] = useState('');

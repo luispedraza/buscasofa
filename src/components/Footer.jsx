@@ -1,18 +1,18 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
   return (
-    <div>
+    <footer>
         <h2>Miembros del equipo:</h2>
         <ul>
-            <li>Javier García</li>
-            <li>Javier López</li>
-            <li>Javier Martínez</li>
-            <li>Javier Pérez</li>
-            <li>Javier Rodríguez</li>
+            <li>Álvaro Castilla Cano</li>
+            <li>Nicolás Rodríguez Steuerberg</li>
+            <li>Iker Nieto Garrido</li>
+            <li>Rodrigo Pelayo Aparisi Olivar</li>
+            <li>Jesús Daponte Faraudo</li>
         </ul>
-    </div>
-  )
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

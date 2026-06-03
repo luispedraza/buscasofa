@@ -20,7 +20,8 @@ function getAverage(values: string[]) {
 }
 
 
-const Home = ({ stations }) => {
+const Home = ({ stations, loading }) => {
+  if (loading) return <div className="loading">Cargando...</div>;
 
   console.log(stations);
 

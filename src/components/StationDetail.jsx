@@ -5,7 +5,9 @@ import './StationDetail.css'
 import './Form.css'
 
 
-function StationDetail({ stations, user }) {
+function StationDetail({ stations, user, loading }) {
+  if (loading) return <div className="loading">Cargando...</div>;
+  
   const location = useLocation();
   // console.log(location);
   const {gobackLink} = location.state;

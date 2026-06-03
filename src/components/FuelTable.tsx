@@ -5,8 +5,8 @@ import './FuelTable.css';
 
 const PAGE_SIZE = 20;
 
-const FuelTable = ({ stations }) => {
-
+const FuelTable = ({ stations, loading }) => {
+  if (loading) return <div className="loading">Cargando...</div>;
   // Filtros
   const [selectedProvince, setSelectedProvince] = useState('');
   const [selectedCity, setSelectedCity] = useState('');

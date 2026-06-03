@@ -1,0 +1,4 @@
+allowBuilds:
+  '@badeball/cypress-cucumber-preprocessor': true
+  cypress: true
+  esbuild: true
