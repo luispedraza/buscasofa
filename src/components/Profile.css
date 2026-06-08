@@ -1,0 +1,30 @@
+.profile-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.profile-container h1 {
+    margin-bottom: 1.5rem;
+}
+
+#user-info {
+    margin: 1.5rem 0;
+}
+
+#user-info p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+#status {
+    color: green;
+}
+
+#no-session {
+    color: #666;
+    margin-bottom: 1rem;
+}
